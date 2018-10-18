@@ -6,6 +6,7 @@ package com.liuz.bplan.model;
  */
 public class User {
     private String user;
+    private Long id;
 
     public String getUser() {
         return user;
@@ -19,6 +20,17 @@ public class User {
     public String toString() {
         return "User{" +
                 "user='" + user + '\'' +
+                ", id=" + id +
                 '}';
     }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getId() {
+
+        return id;
+    }
+
 }

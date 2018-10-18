@@ -1,6 +1,9 @@
 package com.liuz.bplan.dao;
 
 import com.liuz.bplan.annotation.MyBatisDao;
+import com.liuz.bplan.model.User;
+
+import java.util.List;
 
 /**
  * @Author: liuz@aotain.com
@@ -9,4 +12,6 @@ import com.liuz.bplan.annotation.MyBatisDao;
 @MyBatisDao
 public interface TestDao {
     public String getUserName();
+
+    public List<User> listUsers();
 }

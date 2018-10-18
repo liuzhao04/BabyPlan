@@ -23,6 +23,8 @@
     <h2 id="welcome"></h2>
     <hr>
     <h2 id="user"></h2>
+    <hr>
+    <h2 id="users"></h2>
 
     <div th:include="/common/footer :: myfooter"></div>
 
@@ -55,7 +57,20 @@
                 }
             });
         });
-
+        $(document).ready(function() {
+            $.ajax({
+                url: "/test/list",
+                type: 'POST',
+                data:{},
+                dataType:"text",
+                success: function (data) {
+                    $("#users").html(data);
+                },
+                error:function () {
+                    $("#users").html("service error");
+                }
+            });
+        });
     </script>
 </body>
 </html>

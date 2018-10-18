@@ -3,7 +3,10 @@
 <mapper namespace="com.liuz.bplan.dao.TestDao">
 
     <select id="getUserName" resultType="java.lang.String">
-        SELECT fullname FROM operatorinfo WHERE userid=1
+        SELECT id,fullname as user FROM operatorinfo WHERE userid=1
     </select>
 
+    <select id="listUsers" resultType="User">
+        SELECT id,fullname as user FROM operatorinfo WHERE 1=1
+    </select>
 </mapper>
