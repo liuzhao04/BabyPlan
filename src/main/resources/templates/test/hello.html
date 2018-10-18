@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <title>基础数据智能管理系统-首页</title>
+    <meta name="keywords" content="基础数据智能管理系统">
+    <meta name="description" content="基础数据智能管理系统">
+    <!--[if lt IE 9]>
+    <meta http-equiv="refresh" content="0;ie.html" />
+    <![endif]-->
+</head>
+
+<body>
+    <h1>This is a test page!</h1>
+    <hr>
+    <h2 id="welcome"></h2>
+    <hr>
+    <h2 id="user"></h2>
+
+    <div th:include="/common/footer :: myfooter"></div>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $.ajax({
+                url: "/test/hello",
+                type: 'POST',
+                data:{},
+                dataType:"text",
+                success: function (data) {
+                    $("#welcome").html(data);
+                },
+                error:function () {
+                    $("#welcome").html("service error");
+                }
+            });
+        });
+        $(document).ready(function() {
+            $.ajax({
+                url: "/test/json",
+                type: 'POST',
+                data:{},
+                dataType:"json",
+                success: function (data) {
+                    $("#user").html("welcome "+data.user+" !!!");
+                },
+                error:function () {
+                    $("#user").html("service error");
+                }
+            });
+        });
+
+    </script>
+</body>
+</html>
