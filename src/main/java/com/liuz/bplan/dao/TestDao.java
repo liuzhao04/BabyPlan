@@ -11,7 +11,7 @@ import java.util.List;
  */
 @MyBatisDao
 public interface TestDao {
-    public String getUserName();
+    public User getUserName();
 
     public List<User> listUsers();
 }

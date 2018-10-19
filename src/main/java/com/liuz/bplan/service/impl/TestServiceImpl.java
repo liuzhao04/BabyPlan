@@ -19,7 +19,6 @@ public class TestServiceImpl implements TestService {
     public Page<User> listUsers() {
         Page<User> result = PageHelper.startPage(1, 10);
         dao.listUsers();
-        System.out.println(result.getResult());
         return result;
     }
 }

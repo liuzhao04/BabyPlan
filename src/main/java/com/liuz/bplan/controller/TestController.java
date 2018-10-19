@@ -26,8 +26,8 @@ public class TestController {
     @RequestMapping(value = "/hello")
     @ResponseBody
     public String hello() {
-        String userName = dao.getUserName();
-        return "Hi " + userName + ", welcome to BabyPlan !";
+        User user = dao.getUserName();
+        return "Hi " + user.getUser() + ", welcome to BabyPlan !";
     }
 
     @RequestMapping(value = "/page")
@@ -38,9 +38,7 @@ public class TestController {
     @RequestMapping(value = "/json")
     @ResponseBody
     public User json() {
-        String userName = dao.getUserName();
-        User user = new User();
-        user.setUser(userName);
+        User user = dao.getUserName();
         return user;
     }
 
