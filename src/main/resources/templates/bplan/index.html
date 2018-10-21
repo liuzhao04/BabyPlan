@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <title>宝贝计划-首页</title>
+    <meta name="keywords" content="宝贝计划">
+    <meta name="description" content="宝贝计划">
+    <!--[if lt IE 9]>
+    <meta http-equiv="refresh" content="0;ie.html"/>
+    <![endif]-->
+
+    <div th:include="/common/header :: myheader"></div>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span12">
+            <div class="tabbable" id="tabs-332789">
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a data-toggle="tab" href="#panel-342265">新增记录</a>
+                    </li>
+                    <li>
+                        <a data-toggle="tab" href="#panel-735672">统计分析</a>
+                    </li>
+                    <li>
+                        <a data-toggle="tab" href="#panel-735671">记录查询</a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="panel-342265">
+                        <p>
+                        <form role="form" id="form_feed" method="post">
+                            <div class="form-group">
+                                <span  style="color:red">*</span>
+                                <label for="feedTime" class="text-muted">喂奶时间</label>
+                                <input type="text" name="feedTime" class="form-control laydate-icon" id="feedTime"
+                                   placeholder="请选择哺乳时间"  required>
+                            </div>
+                            <div class="form-group">
+                                <span  style="color:red">*</span>
+                                <label for="volume" class="text-muted">摄入量(毫升)</label>
+                                <input type="number" name="volume" class="form-control" id="volume" data-th-max="270" data-th-min="10"
+                                       placeholder="请输入本次宝贝的摄入的牛奶量" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="button" id="addVolume" value="+30ml" class="btn btn-primary btn-sm">
+                                <input type="button" id="minusVolume" value="-30ml" class="btn btn-primary btn-sm">
+                            </div>
+
+                            <div class="from-group" id="nutrition">
+                                <label for="choice">辅助营养</label>
+                                <div class="btn-group" data-toggle="buttons" id="choice">
+                                    <label class="btn btn-primary btn-sm active">
+                                        <input type="radio"  name="nutrition" value="no" > 无
+                                    </label>
+                                    <label class="btn btn-primary btn-sm">
+                                        <input type="radio" name="nutrition" value="dha"> DHA
+                                    </label>
+                                    <label class="btn btn-primary btn-sm">
+                                        <input type="radio" name="nutrition" value="vd3"> 维生素D3
+                                    </label>
+                                </div>
+                            </div>
+                            <button id="addFeedRecord" type="submit" class="btn btn-primary">提交</button>
+                        </form>
+                        </p>
+                    </div>
+                    <div class="tab-pane" id="panel-735672">
+                        <p>
+                            对宝宝每天的吃奶情况进行统计分析，输出统计图。尽情期待！
+                        </p>
+                    </div>
+                    <div class="tab-pane" id="panel-735671">
+                        <p>
+                        <table id="bplanTable" data-mobile-responsive="true" class="text-left">
+
+                        </table>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:include="/common/footer :: myfooter"></div>
+<script th:src="@{{path}/static/js/bplan/bplan-index.js(path=${contextPath})}"></script>
+</body>
+</html>

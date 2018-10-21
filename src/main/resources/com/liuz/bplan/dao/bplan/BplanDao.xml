@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liuz.bplan.dao.bplan.BplanDao">
+    <resultMap id="FeedRecordMap" type="FeedRecord">
+        <id column="ID" property="id" javaType="Integer" jdbcType="INTEGER"></id>
+        <result column="FEED_TIME" property="feedTime" javaType="Date" jdbcType="TIMESTAMP"></result>
+        <result column="VOLUME" property="volume" javaType="Integer" jdbcType="INTEGER"></result>
+        <result column="CREATE_TIME" property="createTime" javaType="Date" jdbcType="TIMESTAMP"></result>
+        <result column="UPDATE_TIME" property="updateTime" javaType="Date" jdbcType="TIMESTAMP"></result>
+        <result column="FEEDED_DHA" property="feedDha" javaType="Boolean" jdbcType="BOOLEAN"></result>
+        <result column="FEEDED_VD3" property="feedVd3" javaType="Boolean" jdbcType="BOOLEAN"></result>
+    </resultMap>
+
+    <insert id="insert" parameterType="FeedRecord" useGeneratedKeys="true" keyProperty="id">
+        insert into T_BREAST_FEED_RECORD (VOLUME,FEED_TIME,FEEDED_DHA,FEEDED_VD3) values(#{volume},#{feedTime},#{feedDha},#{feedVd3})
+    </insert>
+
+    <select id="list" resultMap="FeedRecordMap">
+        select * from T_BREAST_FEED_RECORD where 1=1
+        order by feed_time desc
+    </select>
+</mapper>
