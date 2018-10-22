@@ -10,6 +10,7 @@ import com.liuz.bplan.service.impl.bplan.BplanService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -17,6 +18,15 @@ public class BplanServiceImpl implements BplanService {
 
     @Autowired
     private BplanDao bplanDao;
+
+    @Override
+    public int delete(List<FeedRecordRequest> records) {
+        final List<Integer> idList = new ArrayList<Integer>();
+        if(records != null){
+            records.stream().filter(a -> a!= null).forEach(a -> idList.add(a.getId()));
+        }
+       return bplanDao.deleteByIds(idList);
+    }
 
     @Override
     public int insert(FeedRecord record) {

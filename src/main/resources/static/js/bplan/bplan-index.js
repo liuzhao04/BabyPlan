@@ -110,6 +110,7 @@ $(document).ready(function () {
         clickToSelect: true,
         pageSize: 10,
         pageList: [10, 25, 50, 100, 200],
+        selectItemName:'id',
         uniqueId: 'id',
         columns: [
             {checkbox: true},
@@ -135,11 +136,58 @@ $(document).ready(function () {
            /* {field: 'createTime', title: '创建时间',visible:false},
             {field: 'updateTime', title: '更新时间',visible:false},
             {field: 'operating', title: '操作',visible:false}*/
-        ]
+        ],
+        onCheck : function() {
+           var arr = $("#bplanTable").bootstrapTable("getSelections");
+           if(arr.length == 1){
+                $("#delRecords").removeClass("disabled")
+           }
+        },
+        onUncheck : function(){
+            var arr =  $("#bplanTable").bootstrapTable("getSelections");
+            if(arr.length == 0){
+                $("#delRecords").addClass("disabled")
+            }
+        },
+        onCheckAll : function(){
+            $("#delRecords").removeClass("disabled");
+        },
+        onUncheckAll : function() {
+            $("#delRecords").addClass("disabled");
+        }
+
     });
 
     $("#refreshTable").click(function(){
         $("#bplanTable").bootstrapTable('refresh');
+    });
+
+    $("#delRecords").click(function(){
+        var arr =  $("#bplanTable").bootstrapTable("getSelections");
+        if(arr.length == 0){
+            alert("请选择要删除的记录！");
+            return;
+        }
+
+        $.ajax({
+            url: "/bplan/delete",
+            contentType: "application/json;charset=utf-8",
+            type: 'POST',
+            data: JSON.stringify(arr),
+            dataType: "json",
+            success: function (response) {
+                if (response.success) {
+                    alert("删除成功!");
+                    $("#bplanTable").bootstrapTable('refresh');
+                } else {
+                    alert(response.message);
+                }
+            },
+            error: function () {
+                alert("网络异常");
+            }
+        })
+        return false;
     });
 
 });

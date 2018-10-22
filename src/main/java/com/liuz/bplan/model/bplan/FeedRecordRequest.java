@@ -17,7 +17,9 @@ public class FeedRecordRequest extends AjaxRequest {
     private Date feedTimeStart;
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm", locale = "zh", timezone = "GMT+8")
     private Date feedTimeEnd;
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",locale = "zh", timezone = "GMT+8")
     private Date createTime;
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",locale = "zh", timezone = "GMT+8")
     private Date updateTime;
     private String nutrition;
 
