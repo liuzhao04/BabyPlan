@@ -100,24 +100,24 @@ $(document).ready(function () {
         striped: true,
         undefinedText: '',
         showColumns: !0,
-        // toolbar: "#bplanToolbar",
+        toolbar: "#bplanToolbar",
         pagination: true,
         sidePagination: 'server',
         iconSize: "outline",
         icons: {
             columns: "glyphicon-list",
         },
-        clickToSelect: false,
+        clickToSelect: true,
         pageSize: 10,
         pageList: [10, 25, 50, 100, 200],
         uniqueId: 'id',
-        // data : 'dataList',
         columns: [
-            {field: 'id', title: 'ID', visible: false, width: '100px'},
-            {field: 'feedTime', title: '喂奶时间', width: '120px'},
-            {field: 'volume', title: '摄入量(毫升)', width: '120px'},
+            {checkbox: true},
+            {field: 'id', title: 'ID', visible: false,width:'50px'},
+            {field: 'feedTime', title: '喂奶时间',width:'120px'},
+            {field: 'volume', title: '摄入量',width:'80px'},
             {
-                field: 'nutrition', title: '辅助营养', width: '100px', formatter: function (val,row,index) {
+                field: 'nutrition', title: '辅助营养',width:'100px', formatter: function (val,row,index) {
                     if(undefined == val || "" == val){
                         return "-";
                     }
@@ -132,47 +132,14 @@ $(document).ready(function () {
                     }
                 }
             },
-            {field: 'createTime', title: '创建时间', width: '120px'},
-            {field: 'updateTime', title: '更新时间', width: '120px'},
-            {field: 'operating', title: '操作', width: '200px'}
+           /* {field: 'createTime', title: '创建时间',visible:false},
+            {field: 'updateTime', title: '更新时间',visible:false},
+            {field: 'operating', title: '操作',visible:false}*/
         ]
     });
 
-    // function operateFormatter(value, row, index) {
-    //     var r1 = $("#r1").val();
-    //     var r2 = $("#r2").val();
-    //     var r3 = $("#r3").val();
-    //     var r4 = $("#r4").val();
-    //     var r5 = $("#r5").val();
-    //     var op = "";
-    //     //console.log(row.dealFlag);
-    //     //处理标记（0-未预审、1-预审不通过、2-上报审核中、3-上报审核不通过、4-提交上报、5-上报成功、6-上报失败）
-    //     if (row.czlx != 3 && (row.dealFlag == 0 || row.dealFlag == 1 || row.dealFlag == 3 || row.dealFlag == 5 || row.dealFlag == 6)) {
-    //         if (r1 == 1) {
-    //             op += "<a data-toggle='modal' data-target='#myModaledit' onclick=\"beforeUpdate('" + row.jyzId + "');\" title='修改' class='m-r'><i class='fa fa-edit fa-lg'></i></a>";
-    //         }
-    //         if (r2 == 1) {
-    //             op += "<a class='m-r demo4' onclick=\"deleteFun('" + row.jyzId + "');\"  title='删除'><i class='fa fa-close fa-lg'></i></a>";
-    //         }
-    //     }
-    //     if (row.dealFlag == 0 || row.dealFlag == 6) {
-    //         if (r3 == 1) {
-    //             op += "<a class='m-r demo2 ' onclick=\"preValid('" + row.jyzId + "');\"  title='预审' class='m-r'><i class='fa fa-legal fa-lg'></i></a>";
-    //         }
-    //         if (r4 == 1) {
-    //             op += "<a class='m-r demo2 ' onclick=\"cascadeValid('" + row.jyzId + "');\" title='级联预审' ><i class='fa fa-eye fa-lg'></i></a>";
-    //         }
-    //     }
-    //     if (row.dealFlag == 2) {
-    //         if (r5 == 1) {
-    //             op += "<a class='m-r demo2 ' onclick=\"revokeValid('" + row.jyzId + "');\" title='撤销预审' class='m-r'><i class='fa fa-backward fa-lg'></i></a>";
-    //         }
-    //     }
-    //     op += "<a class='m-r demo2 ' onclick=\"refreshFun('" + row.jyzId + "');\"  title='刷新' class='m-r'><i class='fa fa-refresh fa-lg'></i></a>";
-    //     return op;
-    //     /*return  "<a data-toggle='modal' data-target='#myModaledit' onclick=\"beforeUpdate('"+row.jyzId+"');\" title='修改' class='m-r'><i class='fa fa-edit fa-lg'></i></a>" +
-    //         "<a  class='m-r demo4' title='删除'><i class='fa fa-close fa-lg'></i></a>" +
-    //         "<a class='m-r demo2 'title='预审' class='m-r'><i class='fa fa-legal fa-lg'></i></a>" +
-    //         "<a href='#' title='级联预审' class='m-r'><i class='fa fa-file-text-o fa-lg'></i></a>" ;*/
-    // }
+    $("#refreshTable").click(function(){
+        $("#bplanTable").bootstrapTable('refresh');
+    });
+
 });
