@@ -10,6 +10,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import javax.crypto.Cipher;
+import javax.crypto.NoSuchPaddingException;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
+import java.io.UnsupportedEncodingException;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class BplanApplicationTests {
@@ -28,5 +37,4 @@ public class BplanApplicationTests {
         System.out.println(result);
         System.out.println(result.getResult());
     }
-
 }

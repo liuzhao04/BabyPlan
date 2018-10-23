@@ -74,4 +74,25 @@ public class HomeController {
             return build.buildError("exception to list feed record from db");
         }
     }
+
+    @RequestMapping(value = "delete", method = RequestMethod.POST)
+    @ResponseBody
+    public AjaxResponse<String> delete(@RequestBody List<FeedRecordRequest> records) {
+        AjaxResponse.AjaxResponseBuild build = new AjaxResponse.AjaxResponseBuild();
+        logger.info("start delete a feed record : {}", records.toString());
+        try {
+            int cnt = bplanService.delete(records);
+            if (cnt > 0 ) {
+                logger.info("delete records success : {}", records.toString());
+                return build.buildSuccess();
+            } else {
+                logger.info("delete records fail : {}", records.toString());
+                return build.buildError("fail to delete db");
+            }
+        } catch (Exception e) {
+            logger.error("delete records exception : {}", records.toString(), e);
+            build = new AjaxResponse.AjaxResponseBuild();
+            return build.buildError("exception to delete db");
+        }
+    }
 }

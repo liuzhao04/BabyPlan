@@ -12,4 +12,6 @@ import java.util.List;
 public interface BplanService {
     public int insert(FeedRecord record);
     public Page<FeedRecord> list(FeedRecordRequest query);
+
+    public int delete(List<FeedRecordRequest> records);
 }
