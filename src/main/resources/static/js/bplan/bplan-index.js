@@ -10,14 +10,14 @@ $(document).ready(function () {
 
     // 时间选择框初始化
     var initTimeSelect = function () {
-        laydate.render({
-            elem: "#feedTime",
-            type: "datetime",
-            format: "yyyy-MM-dd HH:mm",
-            min: -1,
-            max: new Date().getMilliseconds(),
-            value: new Date()
-        })
+        $("#feedTime").datetimepicker({
+            format: "yyyy-mm-dd hh:ii",
+            autoclose: true,
+            todayBtn: true,
+            pickerPosition: "bottom-left",
+            startDate: "2013-02-14 10:00",
+            minuteStep: 5
+        });
     };
     initTimeSelect();
 
