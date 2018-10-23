@@ -138,41 +138,4 @@ $(document).ready(function () {
         ]
     });
 
-    // function operateFormatter(value, row, index) {
-    //     var r1 = $("#r1").val();
-    //     var r2 = $("#r2").val();
-    //     var r3 = $("#r3").val();
-    //     var r4 = $("#r4").val();
-    //     var r5 = $("#r5").val();
-    //     var op = "";
-    //     //console.log(row.dealFlag);
-    //     //处理标记（0-未预审、1-预审不通过、2-上报审核中、3-上报审核不通过、4-提交上报、5-上报成功、6-上报失败）
-    //     if (row.czlx != 3 && (row.dealFlag == 0 || row.dealFlag == 1 || row.dealFlag == 3 || row.dealFlag == 5 || row.dealFlag == 6)) {
-    //         if (r1 == 1) {
-    //             op += "<a data-toggle='modal' data-target='#myModaledit' onclick=\"beforeUpdate('" + row.jyzId + "');\" title='修改' class='m-r'><i class='fa fa-edit fa-lg'></i></a>";
-    //         }
-    //         if (r2 == 1) {
-    //             op += "<a class='m-r demo4' onclick=\"deleteFun('" + row.jyzId + "');\"  title='删除'><i class='fa fa-close fa-lg'></i></a>";
-    //         }
-    //     }
-    //     if (row.dealFlag == 0 || row.dealFlag == 6) {
-    //         if (r3 == 1) {
-    //             op += "<a class='m-r demo2 ' onclick=\"preValid('" + row.jyzId + "');\"  title='预审' class='m-r'><i class='fa fa-legal fa-lg'></i></a>";
-    //         }
-    //         if (r4 == 1) {
-    //             op += "<a class='m-r demo2 ' onclick=\"cascadeValid('" + row.jyzId + "');\" title='级联预审' ><i class='fa fa-eye fa-lg'></i></a>";
-    //         }
-    //     }
-    //     if (row.dealFlag == 2) {
-    //         if (r5 == 1) {
-    //             op += "<a class='m-r demo2 ' onclick=\"revokeValid('" + row.jyzId + "');\" title='撤销预审' class='m-r'><i class='fa fa-backward fa-lg'></i></a>";
-    //         }
-    //     }
-    //     op += "<a class='m-r demo2 ' onclick=\"refreshFun('" + row.jyzId + "');\"  title='刷新' class='m-r'><i class='fa fa-refresh fa-lg'></i></a>";
-    //     return op;
-    //     /*return  "<a data-toggle='modal' data-target='#myModaledit' onclick=\"beforeUpdate('"+row.jyzId+"');\" title='修改' class='m-r'><i class='fa fa-edit fa-lg'></i></a>" +
-    //         "<a  class='m-r demo4' title='删除'><i class='fa fa-close fa-lg'></i></a>" +
-    //         "<a class='m-r demo2 'title='预审' class='m-r'><i class='fa fa-legal fa-lg'></i></a>" +
-    //         "<a href='#' title='级联预审' class='m-r'><i class='fa fa-file-text-o fa-lg'></i></a>" ;*/
-    // }
 });
