@@ -10,13 +10,18 @@ $(document).ready(function () {
 
     // 时间选择框初始化
     var initTimeSelect = function () {
-        $("#feedTime").datetimepicker({
-            format: "yyyy-mm-dd hh:ii",
-            autoclose: true,
-            todayBtn: true,
-            pickerPosition: "bottom-left",
-            startDate: "2013-02-14 10:00",
-            minuteStep: 5
+        $('.form_datetime').datetimepicker({
+            format: 'yyyy-hh-dd hh:ii',
+            language:  'zh-CN',
+            weekStart: 1,
+            todayBtn:  1,
+            autoclose: 1,
+            todayBtn: 'linked',
+            todayHighlight: 1,
+            startView: 0,
+            forceParse: 0,
+            showMeridian: 1,
+            minuteStep : 10
         });
     };
     initTimeSelect();
